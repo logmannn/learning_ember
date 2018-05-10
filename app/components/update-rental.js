@@ -17,5 +17,5 @@ export default Component.extend({
       this.set('updateRentalForm', false);
       this.sendAction('update', rental, params);
     }
-  }  
+  }
 });
