@@ -1,14 +1,8 @@
-import Route from '@ember/routing/route';
+import Ember from 'ember';
 
-export default Route.extend({
+export default Ember.Route.extend({
   model(params) {
     return this.store.findRecord('rental', params.rental_id);
-  },
-  model() {
-    return Ember.RSVP.hash({
-      rentals: this.store.findAll('rental'),
-      reviews: this.store.findAll('review')
-    });
   },
   actions: {
     update(rental, params) {
@@ -21,7 +15,25 @@ export default Route.extend({
       this.transitionTo('index');
     },
     destroyRental(rental) {
-      rental.destroyRecord();
+      var review_deletions = rental.get('reviews').map(function(review) {
+        return review.destroyRecord();
+      });
+      Ember.RSVP.all(review_deletions).then(function() {
+        return rental.destroyRecord();
+      });
+      this.transitionTo('index');
+    },
+    saveReview(params) {
+      var newReview = this.store.createRecord('review', params);
+      var rental = params.rental;
+      rental.get('reviews').addObject(newReview);
+      newReview.save().then(function() {
+        return rental.save();
+      });
+      this.transitionTo('rental', rental);
+    },
+    destroyReview(review) {
+      review.destroyRecord();
       this.transitionTo('index');
     }
   }
