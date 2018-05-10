@@ -4,12 +4,12 @@ available by arrangement through {{rental.owner}}.
 <p><img src={{rental.image}} alt={{rental.type}}></p>
 {{update-rental rental=rental update="update"}}
 
+<button {{action 'delete' rental}}>Delete</button>
 
 <h2> Reviews </h2>
 <ul>
   {{#each rental.reviews as |review|}}
-    {{review-tile review=review}}
+    {{review-tile review=review destroyReview="destroyReview"}}
+    <button {{action 'delete' review}}>Delete</button>    
   {{/each}}
 </ul>
-
-<button {{action 'delete' rental}}>Delete</button>
