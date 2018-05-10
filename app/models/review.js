@@ -4,5 +4,5 @@ export default DS.Model.extend({
   author: DS.attr(),
   rating: DS.attr(),
   content: DS.attr(),
-  rental: DS.belongsTo('rental', { async: true })
+  rental: DS.belongsTo('rental', { async: true }),
 });

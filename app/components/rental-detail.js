@@ -1,6 +1,6 @@
-import Component from '@ember/component';
+import Ember from 'ember';
 
-export default Component.extend({
+export default Ember.Component.extend({
   actions: {
     delete(rental) {
       if (confirm('Are you sure you want to delete this rental?')) {
