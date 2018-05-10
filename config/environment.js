@@ -18,10 +18,10 @@ module.exports = function(environment) {
     },
 
     firebase: {
-      apiKey: 'AIzaSyAeGS-JyzyCUe4L-Tu61MMmZ109xOXJgek',
-      authDomain: 'super-rentals-bc448.firebaseapp.com',
-      databaseURL: 'https://super-rentals-bc448.firebaseio.com',
-      storageBucket: 'super-rentals-bc448.appspot.com'
+      apiKey: "AIzaSyAcXsu7c0OLNSnoPeG63dYwUkTBkFKFdcE",
+      authDomain: "learningember-df5c4.firebaseapp.com",
+      databaseURL: "https://learningember-df5c4.firebaseio.com",
+      storageBucket: "learningember-df5c4.appspot.com"
     },
 
     APP: {
