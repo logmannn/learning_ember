@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-
+// looking for a different api
 export default Component.extend({
   addNewReview: false,
   actions: {
@@ -9,7 +9,7 @@ export default Component.extend({
     saveReview() {
      var params = {
        author: this.get('author'),
-       rating: this.get('rating'),
+       rating: parseInt(this.get('rating')),
        content: this.get('content'),
        rental: this.get('rental')
      };
