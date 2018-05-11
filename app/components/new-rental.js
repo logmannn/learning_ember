@@ -1,6 +1,6 @@
-import Ember from 'ember';
-// not sure why this line below is causing errors on runtime that do not effect output...
-export default Ember.Component.extend({
+import Component from '@ember/component';
+
+export default Component.extend({
   addNewRental: false,
   actions: {
     rentalFormShow() {
